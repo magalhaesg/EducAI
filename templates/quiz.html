@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EducAI</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <link rel="stylesheet" href="/static/index.css"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap">
+        <link rel="shortcut icon" href="/static/logo.svg">
+    </head>
+    <body>
+        <header>
+            <div class="header-container">
+                <div class="logo" style="padding-bottom: 0px;">
+                    <img src="/static/logo.svg" alt="logo" width="60px">
+                    <h2>EducAI</h2>
+                </div>
+                <div>
+                    <h3>Questionário 1</h3>
+                </div>
+                <nav>
+                    <a href="content.html">Inicio</a>
+                    <a href="content.html">Conta</a>
+                    <a href="content.html">Sobre</a>
+                    <a href="index.html">Sair</a>
+                </nav>
+            </div>
+        </header>
+        <div class="quiz"> 
+            <div class="text"> 
+                <h2>{{title}}</h2>
+                <p style="font-weight: normal; margin-top: 20px;">{{text|safe}}</p>
+                <footer>{{footer}}</footer>
+            </div>
+            <!-- <p>{{text}}</p> -->
+            <form method="POST">
+                <ol>
+                    {% for i, question in enumerate(questions) %}
+                    <li>
+                        <p>{{ question }}</p>
+                        <textarea type="text" class="response-text" placeholder="Digite sua resposta..." name="q{{ i }}" rows="4" cols="50" required></textarea>
+                        <!-- <input type="text" class="response-text" placeholder="Digite sua resposta..." name="q{{ i }}" required> -->
+                    </li>
+                    {% endfor %}    
+                </ol>
+                <!-- <p>{{ question }}</p>
+                <input type="text" placeholder="Digite sua resposta..." name="q{{ i }}" required>
+                <br> -->
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </body>
+</html>

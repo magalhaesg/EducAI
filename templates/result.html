@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EducAI - Resultado</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link rel="stylesheet" href="/static/index.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap">
+    <link rel="shortcut icon" href="/static/logo.svg">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo" style="padding-bottom: 0px;">
+                <img src="/static/logo.svg" alt="logo" width="60px">
+                <h2>EducAI</h2>
+            </div>
+            <div>
+                <h3>Questionário 1</h3>
+            </div>
+            <nav>
+                <a href="content.html">Inicio</a>
+                <a href="content.html">Conta</a>
+                <a href="content.html">Sobre</a>
+                <a href="index.html">Sair</a>
+            </nav>
+        </div>
+    </header>
+    <div class="quiz">
+        <h2>Resultado do Questionário</h2>
+        <!-- original
+        <h2>Respostas do Aluno:</h2>
+            <ul>
+                {% for user_answer in user_answers %}
+                <li>{{ user_answer }}</li>
+                {% endfor %}
+            </ul> -->
+            <!-- teste -->
+        {% for question, user_answer in combined_data %}
+            <h3>Questão {{loop.index0 + 1}}: </h3>
+            <p>{{ question }}</p>
+            <h4>Resposta do Aluno:</h4>
+            <p>{{ user_answer }}</p>
+        {% endfor %}
+        <h2>Correção via IA:</h2>
+        {% for generated_answer in generated_answers %}
+        <p>{{ generated_answer }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
+        
