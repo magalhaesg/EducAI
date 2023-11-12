@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import openai
 
 app = Flask(__name__)
-openai.api_key = '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'
+openai.api_key = 'Inclua sua chave de API aqui'
 app.jinja_env.autoescape = True
 app.jinja_env.globals.update(enumerate=enumerate)
 title = "A bordadeira"
